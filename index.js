@@ -1,11 +1,13 @@
 const inquirer = require('inquirer');
-const generateMarkdown = require('./generateMarkdown');
-const writeToFile = util
+const fs = require('fs');
+const path = require('path');
+const generateMarkdown = require('./utils/generateMarkdown');
+//const writeToFile = util
 
 // array of questions for user
 const questions = () => { 
     return inquirer.prompt([
-    {  
+    { 
         type: 'input',  
         name: 'title',  
         message: 'What is the title of your project?',  
@@ -51,19 +53,30 @@ const questions = () => {
         name: 'email',  
         message: 'Enter email:',  
         },   
-];
+]);
+}
 
-// function to write README file
-function writeToFile()(fileName, JSON.stringify(data, null, '\t'), (err) => 
-err ? console.log(err) : console.log('Success!')} 
 
+//For the data.license function to work correctly the license queston in the inquirer
+// must save a variable from a list of choices. Then, we will input that variable into
+// a conditionaly that will grab the relevant license and add it to our readme.
 
 
 // function to initialize program
-function init() {= async () => { 
+async function init() {
     try { 
+        
+        
     const answers = await questions(); 
     const html = generateMarkdown(answers); 
+    console.log(html)
+    writeFile("ReadMe.md",generateMarkdown(answers))
+    } catch(error) {}
+}
+// function to write README file
+function writeFile(fileName, data) { 
+    return fs.writeFileSync(path.join(process.cwd(),fileName), data)
+
 }
 
 // function call to initialize program
