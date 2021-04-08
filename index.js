@@ -15,43 +15,43 @@ const questions = () => {
     {
       type: "input",
       name: "description",
-      message: "Describe your project:",
+      message: "Please describe your project:",
     },
     {
       type: "input",
       name: "installation",
-      message: "What are the installation instructions?",
+      message: "Please include installation instructions?",
     },
     {
       type: "input",
       name: "usage",
-      message: "Include usage information:",
+      message: "Please include usage information:",
     },
     {
       type: "input",
       name: "contribution",
-      message: "Include contribution guidelines:",
+      message: "Please Include contribution guidelines:",
     },
     {
       type: "input",
       name: "test",
-      message: "Include test instructions.",
+      message: "Please include test instructions.",
     },
     {
       type: "list",
       name: "license",
       message: "Please select a license:",
-      choices: ["MIT"],
+      choices: ["MIT", "Apache", "Artistic", "Academic", "Other"],
     },
     {
       type: "input",
       name: "username",
-      message: "Enter username:",
+      message: "Please enter username:",
     },
     {
       type: "input",
       name: "email",
-      message: "Enter email:",
+      message: "Please enter email:",
     },
   ]);
 };
